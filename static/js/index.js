@@ -38,13 +38,31 @@ $(document).ready(function() {
 			autoplaySpeed: 3000,
     }
 
+    var one_col_carousel_options = {
+			slidesToScroll: 1,
+			slidesToShow: 1,
+			loop: true,
+			infinite: false,
+			autoplay: false,
+			autoplaySpeed: 3000,
+    }
+
 		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
+    var one_col_carousel = bulmaCarousel.attach('.one_col_carousel', one_col_carousel_options);
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
     	// Add listener to  event
     	carousels[i].on('before:show', state => {
+    		console.log(state);
+    	});
+    }
+
+    // Loop on each carousel initialized
+    for(var i = 0; i < one_col_carousel.length; i++) {
+    	// Add listener to  event
+    	one_col_carousel[i].on('before:show', state => {
     		console.log(state);
     	});
     }
